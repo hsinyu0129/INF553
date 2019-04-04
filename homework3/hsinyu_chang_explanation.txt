@@ -1,0 +1,8 @@
+Item-based CF in 4.2.4, I use 36 minhashs and 13 bands (sizes of bands are not equal, which I found this setting will help LSH with small amount of minhashs to meet the criteria precision = 0.95 and recall = 0.9 in task1). 
+
+For speed, Item-based CF in 4.2.4 accelerates the speed comparing with 4.2.3. When doing 4.2.3, we brute-forcedly calculate Pearson similarity of each item pair, which is a large computation when we have 24732 items in total. Considering I use a function in 4.2.3 to calculate the similarity of the item pair only when they have been co-rated by at least 2 users to eliminate the computation on similarity matrix, there are still near 100000 pairs that need to be evaluated. However, using minhash and Jaccard based LSH like task1 can help us find pairs of items having Jaccard similarity larger than 0.2 (I choose this value to amplify the number of items that have similar item set to help prediction), it generates 7296 similar item pairs which needs much less computation time and 5629 items have similar item set to help prediction. 
+
+In terms of accuracy, Pearson similarities calculated in 4.2.4 are more convincing because the item pairs are similar to some degree based on Jaccard, which means they have an amount of co-rated users among all users that rate either of them. Therefore, the accuracy is better than the result in 4.2.3. 
+
+In sum, Item-based CF in 4.2.4 reduces execution time about 50 seconds and gets a better RMSE.  
+
