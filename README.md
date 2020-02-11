@@ -1,7 +1,7 @@
 INF553: Foundations and Applications of Data Mining
 ========
 
-Coursework in University of Southern California. My solutions implement Data Mining techiques on Spark with Python3 and Scala. 
+Coursework in University of Southern California. Implement Data Mining techiques on Spark with Python3 and Scala. 
 
 |No.| Main Application |Programming|Tags|
 |---|------------------|-----------|----|
